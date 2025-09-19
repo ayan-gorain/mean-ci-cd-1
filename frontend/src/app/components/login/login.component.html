@@ -1,0 +1,25 @@
+<div style="text-align:center; padding: 20px;">
+  <h2>Login</h2>
+  <form (ngSubmit)="onLogin()" #loginForm="ngForm">
+    <div style="margin-bottom: 10px;">
+      <label for="username">Username:</label>
+      <input 
+        type="text" 
+        id="username" 
+        [(ngModel)]="username" 
+        name="username" 
+        required>
+    </div>
+    <div style="margin-bottom: 20px;">
+      <label for="password">Password:</label>
+      <input 
+        type="password" 
+        id="password" 
+        [(ngModel)]="password" 
+        name="password" 
+        required>
+    </div>
+    <button type="submit">Login</button>
+  </form>
+  <p style="margin-top: 20px;">{{ message }}</p>
+</div>
