@@ -15,7 +15,7 @@ const authRouter=require('./routes/auth')
 app.use('/auth',authRouter)
 
 
-const mongoUri = process.env.MONGO_URI;
+const mongoUri = process.env.MONGODB_URI;
 if (!mongoUri) {
     console.error('Missing MONGO_URI environment variable.');
     process.exit(1);
