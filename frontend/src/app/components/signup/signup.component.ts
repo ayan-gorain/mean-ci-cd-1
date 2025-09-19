@@ -1,6 +1,6 @@
 import { FormsModule } from '@angular/forms';
 import { Component } from '@angular/core';
-import { environment } from '../../../environments/environment.prod';
+import { environment } from '../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 
 @Component({

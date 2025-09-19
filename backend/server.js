@@ -15,13 +15,19 @@ const authRouter=require('./routes/auth')
 app.use('/auth',authRouter)
 
 
-const uri=process.env.MONGO_URI
-mongoose.connect(uri, {
-  
-  serverSelectionTimeoutMS: 30000, // 30s timeout
+const mongoUri = process.env.MONGO_URI;
+if (!mongoUri) {
+    console.error('Missing MONGO_URI environment variable.');
+    process.exit(1);
+}
+mongoose.connect(mongoUri, {
+  serverSelectionTimeoutMS: 30000,
 })
 .then(() => console.log('MongoDB connected ✅'))
-.catch(err => console.error('MongoDB connection error ❌', err));
+.catch(err => {
+    console.error('MongoDB connection error ❌', err);
+    process.exit(1);
+});
 
 
 app.get('/',(req,res)=>{
