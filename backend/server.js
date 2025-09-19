@@ -14,13 +14,13 @@ app.use(express.json())
 const authRouter=require('./routes/auth')
 app.use('/auth',authRouter)
 
+mongoose.connect(uri, {
 
-const uri=process.env.MONGO_URI
-mongoose.connect(uri)
-.then(()=>console.log('mongodb connected')
-)
-.catch(err=>console.error(err)
-)
+  serverSelectionTimeoutMS: 30000, // 30s timeout
+})
+.then(() => console.log('MongoDB connected ✅'))
+.catch(err => console.error('MongoDB connection error ❌', err));
+
 
 app.get('/',(req,res)=>{
     res.send('Backend is running')
